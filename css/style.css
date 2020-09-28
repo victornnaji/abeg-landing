@@ -1,34 +1,15 @@
-@font-face {
-  font-family: 'Eina';
-  src: url(../fonts/eina01-regular.woff2) format(woff2);
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Eina';
-  src: url(../fonts/eina01-semibold.woff2) format(woff2);
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Eina';
-  src: url(../fonts/eina01-bold.woff2) format(woff2);
-  font-weight: 600;
-  font-style: normal;
-}
-
 :root {
   --background: #753ff6;
   --background-dark: #6938dc;
-  --Eina: "Eina";
+  --Font: 'Work Sans', sans-serif;
 }
 
 body {
   background: var(--background);
   height: 100%;
   cursor: none;
+  line-height: 24px;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -161,16 +142,6 @@ body {
           transform: rotate(-90deg);
 }
 
-.circle__progress--fill {
-  --initialStroke: 0;
-  --transitionDuration: 0;
-  stroke-opacity: 1;
-  stroke-dasharray: var(--initialStroke);
-  stroke-dashoffset: var(--initialStroke);
-  -webkit-transition: stroke-dashoffset var(--transitionDuration) ease;
-  transition: stroke-dashoffset var(--transitionDuration) ease;
-}
-
 .mask__slice {
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -178,12 +149,42 @@ body {
   background-color: var(--background-dark);
 }
 
+.mask-line {
+  position: relative;
+  -webkit-transform-origin: left;
+  transform-origin: left;
+  width: 20rem;
+  height: 2px;
+  overflow: hidden;
+  margin-top: 50px;
+  background-color: rgba(255, 255, 255, 0.25);
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .mask-line {
+    width: 10rem;
+  }
+}
+
+.mask-line__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  -webkit-transform-origin: left;
+  transform-origin: left;
+}
+
 .line-bg {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 110vw;
+  width: 170vw;
   background: url(../assets/line-bg.5955d9fe.svg) 50% repeat;
   background-size: 170%;
 }
@@ -192,4 +193,72 @@ body {
   .line-bg {
     background: url(../assets/linear-line-bg.3a61fcd6.svg) 50% repeat;
   }
+}
+
+.home .scroll {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .home .scroll {
+    display: none;
+  }
+}
+
+.home .free-view {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .home .free-view {
+    display: block;
+  }
+}
+
+.top-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 900;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 15%;
+  overflow: hidden;
+}
+
+.nav li.nav-item {
+  font-family: var(--Font);
+  list-style: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.brand.link {
+  overflow: hidden;
+}
+
+.scroll-content {
+  margin: 3% 7%;
+  display: block;
+  position: relative;
 }

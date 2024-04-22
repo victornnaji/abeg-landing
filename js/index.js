@@ -83,7 +83,6 @@ class Transition{
         this.tl = null;
         this.state = false;
         this.dom = {
-            //todo remember
             mask: document.querySelector('.page-loader'),
             slices: [...document.querySelectorAll('.js-mask__slice')],
             spinner: document.querySelector(".loader .spinner-container"),
